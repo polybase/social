@@ -1,0 +1,17 @@
+{
+  "id": "demo/social/tweets",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string"
+      },
+      "$pk": {
+        "type": "string"
+      }
+    }
+  }
+}

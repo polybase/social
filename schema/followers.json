@@ -1,0 +1,20 @@
+{
+  "id": "demo/social/followers",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "follower": {
+        "type": "string"
+      },
+      "followee": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "$pk": {
+        "type": "string"
+      }
+    }
+  }
+}

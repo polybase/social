@@ -1,0 +1,23 @@
+{
+  "id": "demo/social/users",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "desc": {
+        "type": "string"
+      },
+      "icon": {
+        "type": "string"
+      },
+      "pvkey": {
+        "type": "string"
+      },
+      "$pk": {
+        "type": "string"
+      }
+    }
+  }
+}
