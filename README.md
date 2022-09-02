@@ -1,8 +1,8 @@
 # Social by Spacetime
 
-A simple social media demo for the decentralized database, [Spacetime](https://spacetime.xyz).
+A simple social media demo for [Spacetime](https://spacetime.xyz) (the decentralized database).
 
-**Useful Links**
+### Links
 
 📖 [Documentation](https://docs.spacetime.xyz)
 
