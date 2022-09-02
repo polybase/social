@@ -32,7 +32,8 @@ export function ProfileDetail () {
 
   const share = useAsyncCallback(async (e) => {
     e.preventDefault()
-    const pk = `0x${auth?.wallet?.getPublicKeyString()}`
+    const pk = auth?.wallet?.getPublicKeyString()
+    if (!pk) throw new Error('You must be logged in to share a message')
     await spacetime.collection<Message>('demo/social/messages').doc(nanoid()).set({
       message: msg,
       account,
