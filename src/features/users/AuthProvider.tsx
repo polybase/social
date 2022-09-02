@@ -1,20 +1,20 @@
 import React, { createContext, useState, useCallback, useEffect, useMemo } from 'react'
-import Cookies from 'js-cookie'
+import Wallet from 'ethereumjs-wallet'
 // import ReactGA from 'react-ga'
 // import * as Sentry from '@sentry/react'
 // import posthog from 'posthog-js'
 
 export interface AuthContextValue {
-  auth: { userId: string } | null
+  auth: { account: string, wallet: Wallet } | null
   loading: boolean
-  login: (userId: string) => Promise<void>
+  login: (account: string, wallet: Wallet) => Promise<void>
   logout: () => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextValue>({
   loading: true,
   auth: null,
-  login: async (userId: string) => {},
+  login: async (account: string, wallet: Wallet) => {},
   logout: async () => { console.log('demo logout') },
 })
 
@@ -25,35 +25,29 @@ export interface AuthProviderProps {
 }
 
 export function AuthProvider ({ children, storagePrefix = 'spacetime.', domain }: AuthProviderProps) {
-  const userIdPath = `${storagePrefix}userId`
-  const loginAsUserPath = `${storagePrefix}loginAsUserPath`
   const [auth, setAuth] = useState<AuthContextValue['auth']>(null)
   const [loading, setLoading] = useState(true)
   // const client = useApi()
 
-  const login = useCallback(async (userId: string) => {
-    Cookies.set(userIdPath, userId, { domain })
-    if (userId) Cookies.set(userIdPath, userId, { domain })
+  const login = useCallback(async (account: string, wallet: Wallet) => {
     // if (userId) posthog.identify(userId, { email })
     // if (email) Sentry.setUser({ email, id: userId })
-    setAuth({ userId })
+    setAuth({ account, wallet })
     // ReactGA.ga('event', 'login')
-  }, [domain, userIdPath])
+  }, [])
 
   const logout = useCallback(async () => {
-    Cookies.remove(userIdPath, { domain })
-    Cookies.remove(loginAsUserPath, { domain })
     // posthog.reset()
     // client.cache.reset()
     // Sentry.setUser(null)
     setAuth(null)
-  }, [domain, userIdPath, loginAsUserPath])
+  }, [])
 
   useEffect(() => {
-    const userId = Cookies.get(userIdPath)
+    // const userId = Cookies.get(userIdPath)
     setLoading(false)
-    if (userId) setAuth({ userId })
-  }, [userIdPath])
+    // if (userId) setAuth({ userId })
+  }, [])
 
   const value = useMemo(() => ({
     auth,

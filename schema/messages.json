@@ -1,0 +1,31 @@
+{
+  "id": "demo/social/messages",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      },
+      "account": {
+        "type": "string"
+      },
+      "$pk": {
+        "type": "string"
+      }
+    }
+  },
+  "indexes": [
+    {
+      "fields": [
+        { "field": "account" },
+        { 
+          "field": "timestamp", 
+          "direction": "desc"
+        }
+      ]
+    }
+  ]
+}

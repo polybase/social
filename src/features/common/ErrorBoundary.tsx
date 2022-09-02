@@ -29,8 +29,7 @@ interface ErrorBoundaryState {
 
 export default function ErrorBoundary (props: ErrorBoundaryProps) {
   const { auth } = useAuth()
-  const userId = auth?.userId || undefined
-  return <ErrorBoundaryInner userId={userId} {...props} />
+  return <ErrorBoundaryInner userId={auth?.account} {...props} />
 }
 
 export class ErrorBoundaryInner extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {

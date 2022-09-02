@@ -5,7 +5,6 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
-import { useCurrentUserId } from 'features/users/useCurrentUserId'
 import { useAuth } from 'features/users/useAuth'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 import { useLogin } from 'features/users/useLogin'
@@ -19,8 +18,7 @@ export interface LayoutProps {
 }
 
 export function Layout ({ children, isLoading, logoLink, logoLinkExternal, hideAuthBtns }: LayoutProps) {
-  const auth = useAuth()
-  const [userId, userIdLoading] = useCurrentUserId()
+  const { auth, loading, logout } = useAuth()
   const login = useLogin()
 
   return (
@@ -37,11 +35,11 @@ export function Layout ({ children, isLoading, logoLink, logoLinkExternal, hideA
         {!hideAuthBtns && (
           <HStack spacing={2}>
             <ColorModeSwitcher />
-            {!userId && !userIdLoading && (
+            {!auth && !loading && (
               <Button onClick={login}>Login</Button>)}
-            {userId && !userIdLoading && (
+            {auth && !loading && (
               <Button onClick={async () => {
-                await auth.logout()
+                await logout()
                 // navigate('/')
               }}>Logout</Button>
             )}

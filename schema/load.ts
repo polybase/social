@@ -1,6 +1,6 @@
 import { CollectionMeta, Spacetime } from '@spacetimexyz/client'
 import users from './users.json'
-import tweets from './tweets.json'
+import messages from './messages.json'
 import followers from './followers.json'
 
 // PK, need to establish a PK so we can control updates
@@ -13,7 +13,7 @@ async function load () {
 
   await Promise.all([
     db.createCollection(users as CollectionMeta),
-    db.createCollection(tweets as CollectionMeta),
+    db.createCollection(messages as CollectionMeta),
     db.createCollection(followers as CollectionMeta),
   ])
 

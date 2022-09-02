@@ -1,8 +1,9 @@
 export interface User {
   id: string
-  name: string
-  desc: string
-  icon: string
+  name?: string
+  desc?: string
+  icon?: string
+  account: string
   pvkey: string
   $pk: string
 }
@@ -15,9 +16,10 @@ export interface Follower {
   $pk: string
 }
 
-export interface Tweet {
+export interface Message {
   id: string
   message: string
-  user: string
+  account: string
+  timestamp: string
   $pk: string
 }
