@@ -1,6 +1,15 @@
-# Spacetime Social
+# Social by Spacetime
 
-A sample social media demonstrating a decentralized app built on [Spacetime](https://spacetime.xyz).
+A simple social media demo for the decentralized database, [Spacetime](https://spacetime.xyz).
+
+**Useful Links**
+
+📖 [Documentation](https://docs.spacetime.xyz)
+
+👾 [Discord](https://discord.com/invite/DrXkRpCFDX)
+
+🐦 [Twitter](https://twitter.com/spacetime_xyz)
+
 
 
 ### Get Started
@@ -8,7 +17,7 @@ A sample social media demonstrating a decentralized app built on [Spacetime](htt
 Load the database schema into Spacetime:
 
 ```
-yarn load
+yarn env yarn load
 ```
 
 Then start the application:
