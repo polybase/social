@@ -6,6 +6,8 @@ A simple social media demo for the decentralized database, [Spacetime](https://s
 
 📖 [Documentation](https://docs.spacetime.xyz)
 
+🥽 [Explorer](https://explorer.testnet.spacetime.xyz)
+
 👾 [Discord](https://discord.com/invite/DrXkRpCFDX)
 
 🐦 [Twitter](https://twitter.com/spacetime_xyz)
