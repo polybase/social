@@ -1,4 +1,4 @@
-import { Stack, Box,  Container, VStack, Heading } from '@chakra-ui/react'
+import { Stack, Box,  Container, VStack, Heading, Link as ChakraLink, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useSpacetime, useCollection } from '@spacetimexyz/react'
 import { map } from 'lodash'
@@ -18,7 +18,7 @@ export function Home () {
         <Box borderRadius='md' bg='bw.50' p={4}>
           <Stack>
             <Heading size='md'>
-              {data?.name ?? 'Annon'}{auth?.account === data.account ? ' (You)' : ''}
+              {data?.name ?? 'Anon'}{(auth && (auth?.account === data.account)) ? ' (You)' : ''}
             </Heading>
             <Box>
               {data.id}
@@ -33,6 +33,12 @@ export function Home () {
     <Layout>
       <VStack>
         <Container size='lg' p={4}>
+          <Heading size='lg' pb={8}>
+            Social is a demo app for the <ChakraLink href='https://spacetime.xyz'>Spacetime</ChakraLink> decentralized database.
+          </Heading>
+          <Text>
+            Many featuers are not implemented or are WIP.
+          </Text>
           <Box>
             <Stack spacing='6'>
               {usersEl}
