@@ -10,7 +10,8 @@
     "load": "ts-node ./schema/load.ts",
     "env": "env-cmd --no-override --file ${ENV_PATH:-.env.development}",
     "deploy": "SKIP_PREFLIGHT_CHECK=true NODE_ENV=production yarn build && yarn deploy:netlify",
-    "deploy:netlify": "netlify deploy --dir ./build --prod --functions ./noop"
+    "deploy:netlify": "netlify deploy --dir ./build --prod --functions ./noop",
+    "fix": "eslint \"./src/**/*.{ts,tsx}\" webpack.config.js --fix"
   },
   "dependencies": {
     "@1productaweek/react-modal-hooks": "^0.1.14",
@@ -126,6 +127,7 @@
     "assert": "^2.0.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "buffer": "^6.0.3",
+    "copy-webpack-plugin": "^11.0.0",
     "crypto-browserify": "^3.12.0",
     "env-cmd": "^10.1.0",
     "https-browserify": "^1.0.0",

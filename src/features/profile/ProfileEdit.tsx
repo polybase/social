@@ -73,7 +73,7 @@ export function ProfileEdit () {
                     </FormControl>
                     <FormControl>
                       <FormLabel>Desc</FormLabel>
-                      <Input type='desc' {...register('desc')} />
+                      <Input type='desc' {...register('description')} />
                       <FormHelperText>Tell people about yourself</FormHelperText>
                     </FormControl>
                   </Stack>

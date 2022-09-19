@@ -1,7 +1,7 @@
-import { CollectionMeta, Spacetime } from '@spacetimexyz/client'
-import users from './users.json'
-import messages from './messages.json'
-import followers from './followers.json'
+import { Spacetime } from '@spacetimexyz/client/node'
+import users from './users'
+import messages from './messages'
+import followers from './followers'
 
 // PK, need to establish a PK so we can control updates
 
@@ -12,9 +12,9 @@ async function load () {
   })
 
   await Promise.all([
-    db.createCollection(users as CollectionMeta),
-    db.createCollection(messages as CollectionMeta),
-    db.createCollection(followers as CollectionMeta),
+    db.createCollection(users),
+    db.createCollection(messages),
+    db.createCollection(followers),
   ])
 
   return 'Schema loaded'
