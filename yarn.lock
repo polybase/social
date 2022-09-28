@@ -2535,13 +2535,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@spacetimexyz/client@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/client/-/client-0.2.0.tgz#e9f4668e722c84efdfe50ad0024b15d23fda25f6"
-  integrity sha512-g39Xy5i+WD3FqK093EthCXu7AGQ59uhs+bOcMY7nEwGeccoYLiQlOfTBP6QPPzTG+YHIcerVbiaCbfq76qAw3A==
+"@spacetimexyz/client@0.2.1-beta1", "@spacetimexyz/client@^0.2.1-beta1":
+  version "0.2.1-beta1"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/client/-/client-0.2.1-beta1.tgz#5bb59f4a4ff13eeb91f0ab6e41f2d8e7c5871355"
+  integrity sha512-LGJ0BtGxV3AL+S8AdYH1zxiLeKgCODF13+Y1j3xWgZI7AnB4UPKinQ8vbvpj8Ak35nRuCkeTknJfxquGHtehwQ==
   dependencies:
     "@spacetimexyz/eth" "^0.1.27"
-    "@spacetimexyz/parser" "^0.1.2"
+    "@spacetimexyz/lang" "^0.1.4"
     axios "^0.27.2"
     lodash.merge "^4.6.2"
 
@@ -2554,17 +2554,17 @@
     "@ethersproject/strings" "^5.7.0"
     "@spacetimexyz/util" "^0.1.27"
 
-"@spacetimexyz/parser@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/parser/-/parser-0.1.2.tgz#1d66cd2dab52c98597c103af782dbd90c5806859"
-  integrity sha512-L+xSeuCNK7tgSwaVlkBEes+wguTQxvLUwhKHxe0aYHYhMZ9RiTNK/Fjx61VDyKEnKnfaE3rKnD/E8LpFc7tfLw==
+"@spacetimexyz/lang@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/lang/-/lang-0.1.4.tgz#4ef6865afdf2932fa43ce094e5dece3790cdd68d"
+  integrity sha512-muGtU+CaXkgzTVG0QQHHVLfnBO0BV+UjtYNbkNLWBtnedD8mq5cfzx/84VyUyepn2/L7fgWWzuwkb1Itystyng==
 
-"@spacetimexyz/react@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/react/-/react-0.2.0.tgz#cc70733242fa2b30b5db0cb159e3593902fc827f"
-  integrity sha512-G+mir9aiCArOOPfM9io8ApkxH3XFbgkMCGQk++LuhK1M955i/BbgSOnL4iMRjtPEl82yzyeWaHHzDncvF5mAcg==
+"@spacetimexyz/react@0.2.1-beta1":
+  version "0.2.1-beta1"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/react/-/react-0.2.1-beta1.tgz#362a567396976d7781f573b1af169e9b2191cb81"
+  integrity sha512-qqmoopmzVs+hGGQ9dxvWIJQ2Sfl/at7SomEAQFWzruewbAHDqKrlI0yroSY6yImTPnRVrwRxqLaSZZCOXON4Gg==
   dependencies:
-    "@spacetimexyz/client" "^0.2.0"
+    "@spacetimexyz/client" "^0.2.1-beta1"
 
 "@spacetimexyz/util@^0.1.15", "@spacetimexyz/util@^0.1.27":
   version "0.1.27"

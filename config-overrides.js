@@ -22,7 +22,7 @@ module.exports = function override (config) {
     new CopyPlugin({
       patterns: [
         {
-          from: 'node_modules/@spacetimexyz/parser/web/*.wasm',
+          from: 'node_modules/@spacetimexyz/lang/web/*.wasm',
           to: 'static/js/[name][ext]',
         },
       ],

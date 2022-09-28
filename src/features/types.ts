@@ -1,7 +1,7 @@
 export interface User {
   id: string
   name?: string
-  description?: string
+  desc?: string
   icon?: string
   account: string
   pvkey: string
