@@ -12,7 +12,7 @@ export function Home () {
   const { auth } = useAuth()
   const { data } = useCollection<User>(spacetime.collection('demo/social/users'))
 
-  const usersEl = map(data, ({ data }) => {
+  const usersEl = map(data?.data, ({ data }) => {
     return (
       <Link to={`/profiles/${data.id}`} key={data.id}>
         <Box borderRadius='md' bg='bw.50' p={4}>

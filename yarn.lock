@@ -2535,13 +2535,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@spacetimexyz/client@^0.1.0", "@spacetimexyz/client@^0.1.27":
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/client/-/client-0.1.27.tgz#815030da0a9b106def1d33f6a26177d7d916532d"
-  integrity sha512-TeRu0OmJtyVv3t+WAKoHnEr/y+pE/lO+SLDodUTWmARTuJOfQSO8kP+82RsvW8gLDtqIGVl/RZd7OT7PalETpA==
+"@spacetimexyz/client@0.2.1-beta1", "@spacetimexyz/client@^0.2.1-beta1":
+  version "0.2.1-beta1"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/client/-/client-0.2.1-beta1.tgz#5bb59f4a4ff13eeb91f0ab6e41f2d8e7c5871355"
+  integrity sha512-LGJ0BtGxV3AL+S8AdYH1zxiLeKgCODF13+Y1j3xWgZI7AnB4UPKinQ8vbvpj8Ak35nRuCkeTknJfxquGHtehwQ==
   dependencies:
     "@spacetimexyz/eth" "^0.1.27"
-    ajv "^8.11.0"
+    "@spacetimexyz/lang" "^0.1.4"
     axios "^0.27.2"
     lodash.merge "^4.6.2"
 
@@ -2554,12 +2554,17 @@
     "@ethersproject/strings" "^5.7.0"
     "@spacetimexyz/util" "^0.1.27"
 
-"@spacetimexyz/react@^0.1.15":
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/react/-/react-0.1.27.tgz#24bb0707a200b4a81138a10aa461dd1c872df7e3"
-  integrity sha512-N5z1Zeb+YUfTc+PSpsuLQtn149ZKKP6x0OeoqydCFQjDnP7vvZrDV2WKzk+Jxr/UevdRLaAhb9Enx2zFOVJP3w==
+"@spacetimexyz/lang@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/lang/-/lang-0.1.4.tgz#4ef6865afdf2932fa43ce094e5dece3790cdd68d"
+  integrity sha512-muGtU+CaXkgzTVG0QQHHVLfnBO0BV+UjtYNbkNLWBtnedD8mq5cfzx/84VyUyepn2/L7fgWWzuwkb1Itystyng==
+
+"@spacetimexyz/react@0.2.1-beta1":
+  version "0.2.1-beta1"
+  resolved "https://registry.yarnpkg.com/@spacetimexyz/react/-/react-0.2.1-beta1.tgz#362a567396976d7781f573b1af169e9b2191cb81"
+  integrity sha512-qqmoopmzVs+hGGQ9dxvWIJQ2Sfl/at7SomEAQFWzruewbAHDqKrlI0yroSY6yImTPnRVrwRxqLaSZZCOXON4Gg==
   dependencies:
-    "@spacetimexyz/client" "^0.1.27"
+    "@spacetimexyz/client" "^0.2.1-beta1"
 
 "@spacetimexyz/util@^0.1.15", "@spacetimexyz/util@^0.1.27":
   version "0.1.27"
@@ -3556,7 +3561,7 @@ ajv@^6.10.0, ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.11.0, ajv@^8.6.0, ajv@^8.8.0:
+ajv@^8.0.0, ajv@^8.6.0, ajv@^8.8.0:
   version "8.11.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.0.tgz#977e91dd96ca669f54a11e23e378e33b884a565f"
   integrity sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==
@@ -4525,6 +4530,18 @@ copy-to-clipboard@3.3.1:
   integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
   dependencies:
     toggle-selection "^1.0.6"
+
+copy-webpack-plugin@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-11.0.0.tgz#96d4dbdb5f73d02dd72d0528d1958721ab72e04a"
+  integrity sha512-fX2MWpamkW0hZxMEg0+mYnA40LTosOSa5TqZ9GYIBzyJa9C3QUaMPSE2xAi/buNr8u89SfD9wHSQVBzrRa/SOQ==
+  dependencies:
+    fast-glob "^3.2.11"
+    glob-parent "^6.0.1"
+    globby "^13.1.1"
+    normalize-path "^3.0.0"
+    schema-utils "^4.0.0"
+    serialize-javascript "^6.0.0"
 
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
   version "3.23.5"
@@ -6180,6 +6197,17 @@ globby@^11.0.4, globby@^11.1.0:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
+
+globby@^13.1.1:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-13.1.2.tgz#29047105582427ab6eca4f905200667b056da515"
+  integrity sha512-LKSDZXToac40u8Q1PQtZihbNdTYSNMuWe+K5l+oa6KgDzSvVrHXlJy40hUP522RjAIoNLJYBJi7ow+rbFpIhHQ==
+  dependencies:
+    dir-glob "^3.0.1"
+    fast-glob "^3.2.11"
+    ignore "^5.2.0"
+    merge2 "^1.4.1"
+    slash "^4.0.0"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.10"

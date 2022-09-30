@@ -42,7 +42,7 @@ export function ProfileDetail () {
     setMsg('')
   })
 
-  const messagesEl = map(messages, ({ data }) => {
+  const messagesEl = map(messages?.data, ({ data }) => {
     return (
       <MessageBox message={data} />
     )
