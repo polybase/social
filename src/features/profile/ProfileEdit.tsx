@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid'
 import moment from 'moment'
 import { useForm } from 'react-hook-form'
 import { Layout } from 'features/common/Layout'
-import { useDocument, useSpacetime } from '@spacetimexyz/react'
+import { useDocument, usePolybase } from '@polybase/react'
 import { Message, User } from 'features/types'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from 'features/users/useAuth'
@@ -17,7 +17,7 @@ import { useAsyncCallback } from 'modules/common/useAsyncCallback'
 export function ProfileEdit () {
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
-  const spacetime = useSpacetime()
+  const polybase = usePolybase()
   const { handleSubmit, register, reset } = useForm()
 
   const { auth } = useAuth()
@@ -30,7 +30,7 @@ export function ProfileEdit () {
   }, [account, navigate])
 
   const { data } = useDocument<User>(
-    account ? spacetime.collection('demo/social/users').doc(account) : null,
+    account ? polybase.collection('demo/social/users').doc(account) : null,
   )
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export function ProfileEdit () {
 
   const onEdit = useAsyncCallback(async (data) => {
     if (!account) return
-    await spacetime.collection<Message>('demo/social/users').doc(account).set(data, [auth?.wallet?.getPublicKeyString()])
+    await polybase.collection<Message>('demo/social/users').doc(account).set(data, [auth?.wallet?.getPublicKeyString()])
     setMsg('')
     navigate(`/profiles/${account}`)
   })

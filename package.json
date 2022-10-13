@@ -1,5 +1,5 @@
 {
-  "name": "spacetime-social",
+  "name": "polybase-social",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,12 +18,12 @@
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
+    "@polybase/client": "^0.2.4",
+    "@polybase/eth": "^0.1.27",
+    "@polybase/react": "^0.2.3",
+    "@polybase/util": "^0.1.27",
     "@sentry/react": "^7.11.1",
     "@sentry/tracing": "^7.11.1",
-    "@spacetimexyz/client": "0.2.1-beta1",
-    "@spacetimexyz/eth": "^0.1.27",
-    "@spacetimexyz/react": "0.2.1-beta1",
-    "@spacetimexyz/util": "^0.1.15",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^14.1.0",

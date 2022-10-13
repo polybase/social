@@ -1,16 +1,16 @@
 import { Stack, Box,  Container, VStack, Heading, Link as ChakraLink, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { useSpacetime, useCollection } from '@spacetimexyz/react'
+import { usePolybase, useCollection } from '@polybase/react'
 import { map } from 'lodash'
 import { Layout } from 'features/common/Layout'
 import { User } from 'features/types'
 import { useAuth } from 'features/users/useAuth'
 
 export function Home () {
-  const spacetime = useSpacetime()
+  const polybase = usePolybase()
 
   const { auth } = useAuth()
-  const { data } = useCollection<User>(spacetime.collection('demo/social/users'))
+  const { data } = useCollection<User>(polybase.collection('demo/social/users'))
 
   const usersEl = map(data?.data, ({ data }) => {
     return (
@@ -34,7 +34,7 @@ export function Home () {
       <VStack>
         <Container size='lg' p={4}>
           <Heading size='lg' pb={8}>
-            Social is a demo app for the <ChakraLink href='https://spacetime.xyz'>Spacetime</ChakraLink> decentralized database.
+            Social is a demo app for the <ChakraLink href='https://polybase.xyz'>Polybase</ChakraLink> decentralized database.
           </Heading>
           <Text>
             Many featuers are not implemented or are WIP.

@@ -1,14 +1,14 @@
-import * as eth from '@spacetimexyz/eth'
+import * as eth from '@polybase/eth'
 import Wallet from 'ethereumjs-wallet'
-import { useSpacetime } from '@spacetimexyz/react'
-import { Spacetime } from '@spacetimexyz/client'
-import { ethPersonalSign } from '@spacetimexyz/eth'
+import { usePolybase } from '@polybase/react'
+import { Polybase } from '@polybase/client'
+import { ethPersonalSign } from '@polybase/eth'
 import { useAuth } from './useAuth'
 import { User } from 'features/types'
 
 export function useLogin () {
   const { login } = useAuth()
-  const db = useSpacetime()
+  const db = usePolybase()
 
   return async () => {
     const accounts = await eth.requestAccounts()
@@ -25,7 +25,7 @@ export function useLogin () {
   }
 }
 
-async function getWallet (account: string, db: Spacetime) {
+async function getWallet (account: string, db: Polybase) {
   // Lookup account
   const doc = db.collection<User>('demo/social/users').doc(account)
   const user = await doc.get().catch(() => null)

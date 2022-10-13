@@ -1,10 +1,10 @@
-import { Spacetime } from '@spacetimexyz/client/node'
+import { Polybase } from '@polybase/client'
 
 // PK, need to establish a PK so we can control updates
 
 const schema = `
 collection users {
-  id: string!;
+  id: string!; 
   name: string;
   desc: string;
   icon: string;
@@ -32,7 +32,7 @@ collection messages {
 `
 
 async function load () {
-  const db = new Spacetime({
+  const db = new Polybase({
     baseURL: `${process.env.REACT_APP_API_URL}/v0`,
   })
 

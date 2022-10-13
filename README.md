@@ -1,22 +1,22 @@
-# Social by Spacetime
+# Social by Polybase
 
-A simple social media demo for [Spacetime](https://spacetime.xyz) (the decentralized database).
+A simple social media demo for [Polybase](https://polybase.xyz) (the decentralized database).
 
 ### Links
 
-📖 [Documentation](https://docs.spacetime.xyz)
+📖 [Documentation](https://docs.polybase.xyz)
 
-🥽 [Explorer](https://explorer.testnet.spacetime.xyz)
+🥽 [Explorer](https://explorer.testnet.polybase.xyz)
 
 👾 [Discord](https://discord.com/invite/DrXkRpCFDX)
 
-🐦 [Twitter](https://twitter.com/spacetime_xyz)
+🐦 [Twitter](https://twitter.com/polybase_xyz)
 
 
 
 ### Get Started
 
-Load the database schema into Spacetime:
+Load the database schema into Polybase:
 
 ```
 yarn env yarn load

@@ -10,13 +10,13 @@ import AppRoutes from './AppRoutes'
 import ScrollToTop from 'modules/common/ScrollToTop'
 import PostHogPageView from 'modules/common/PostHogPageView'
 import { AuthProvider } from 'features/users/AuthProvider'
-import { SpacetimeProvider } from '@spacetimexyz/react'
-import spacetime from 'config/spacetime'
+import { PolybaseProvider } from '@polybase/react'
+import polybase from 'config/polybase'
 
 
 export const App = () => {
   return (
-    <SpacetimeProvider spacetime={spacetime}>
+    <PolybaseProvider polybase={polybase}>
       <AuthProvider
         domain={process.env.REACT_APP_DOMAIN}
         storagePrefix={process.env.REACT_APP_AUTH_STORAGE_PREFIX}
@@ -30,6 +30,6 @@ export const App = () => {
           </Router>
         </ChakraProvider>
       </AuthProvider>
-    </SpacetimeProvider>
+    </PolybaseProvider>
   )
 }

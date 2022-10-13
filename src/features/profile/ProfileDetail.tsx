@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 import { map } from 'lodash'
 import moment from 'moment'
 import { Layout } from 'features/common/Layout'
-import { useCollection, useDocument, useSpacetime } from '@spacetimexyz/react'
+import { useCollection, useDocument, usePolybase } from '@polybase/react'
 import { Message, User } from 'features/types'
 import { useParams, Link } from 'react-router-dom'
 import { useAuth } from 'features/users/useAuth'
@@ -14,17 +14,17 @@ import { MessageBox } from 'features/message/Message'
 export function ProfileDetail () {
   const [msg, setMsg] = useState('')
   const { account } = useParams()
-  const spacetime = useSpacetime()
+  const polybase = usePolybase()
 
   const { auth } = useAuth()
 
   const { data } = useDocument<User>(
-    account ? spacetime.collection('demo/social/users').doc(account) : null,
+    account ? polybase.collection('demo/social/users').doc(account) : null,
   )
 
   const { data: messages } = useCollection<Message>(
     account
-      ? spacetime.collection('demo/social/messages')
+      ? polybase.collection('demo/social/messages')
         .where('account', '==', account)
         .sort('timestamp', 'desc')
       : null,
@@ -34,7 +34,7 @@ export function ProfileDetail () {
     e.preventDefault()
     const pk = auth?.wallet?.getPublicKeyString()
     if (!pk) throw new Error('You must be logged in to share a message')
-    await spacetime.collection<Message>('demo/social/messages').doc(nanoid()).set({
+    await polybase.collection<Message>('demo/social/messages').doc(nanoid()).set({
       message: msg,
       account,
       timestamp: moment().toISOString(),

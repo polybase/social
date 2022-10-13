@@ -2406,6 +2406,45 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@polybase/client@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@polybase/client/-/client-0.2.4.tgz#4da614c21e3cf23afb4b62d1c10da86067a235e9"
+  integrity sha512-giauL1CAtCI07Qq6gv2gR80zk6rew81a3ACZubKzu9BR2W2IDMsZ3vBJmWrQxoj7Mu7djA+o7lLwGT3MXrwvBA==
+  dependencies:
+    "@polybase/eth" "^0.1.27"
+    "@polybase/polylang" "^0.2.2"
+    axios "^0.27.2"
+    lodash.merge "^4.6.2"
+
+"@polybase/eth@^0.1.27":
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/@polybase/eth/-/eth-0.1.27.tgz#02924035a99577c52849f80242ef60e40ba53fb9"
+  integrity sha512-IYA7mbSOsxJldl9KUGaEuL8QUg6wWCfZDRvinR+I5n2cVodbErDeDacjPeKg3YQgFNbBn2pS5el5b1MOF/ZG0Q==
+  dependencies:
+    "@ethersproject/keccak256" "^5.7.0"
+    "@ethersproject/strings" "^5.7.0"
+    "@polybase/util" "^0.1.27"
+
+"@polybase/polylang@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@polybase/polylang/-/polylang-0.2.2.tgz#da6be1c74a48970ab85916bd6afd1cea6afb3785"
+  integrity sha512-+zRy/8oJBq1to3/W05+e8Y5tr9O7Y5PGW5ro26vAlA+lOK64orOKtDBq5pVnVC/wV17bm8B6Ld/Mnw7mlb4h+A==
+
+"@polybase/react@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@polybase/react/-/react-0.2.3.tgz#2a2216adc280c4fe0019c53db1fd9070d73274a6"
+  integrity sha512-LJEI9LchlEJQBJvjdzi4epVfUxL4QntK8iFL8sEvFmJiNImP/OpFlYP1TRVCc2Om9xB7RklYWwPoWtGGHefPzw==
+
+"@polybase/util@^0.1.27":
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/@polybase/util/-/util-0.1.27.tgz#3e24e9b660b0bf3ec6e0ede7100cbfce54d99d0f"
+  integrity sha512-pODThes4/tzJ5cnChFSQSRao+4fYuoXNyoPGrxjnwKquSqzLe8a+sa5Eu5lIxvBX+1Iw+3/PMGhRgtGTdvaxUw==
+  dependencies:
+    "@ethersproject/bytes" "^5.7.0"
+    "@ethersproject/signing-key" "^5.7.0"
+    tweetnacl "^1.0.3"
+    tweetnacl-util "^0.15.1"
+
 "@popperjs/core@^2.9.3":
   version "2.11.6"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
@@ -2534,47 +2573,6 @@
   integrity sha512-OAPJUAtgeINhh/TAlUID4QTs53Njm7xzddaVlEs/SXwgtiD1tW22zAB/W1wdqfrpmikgaWQ9Fw6Ws+hsiRm5Vg==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
-
-"@spacetimexyz/client@0.2.1-beta1", "@spacetimexyz/client@^0.2.1-beta1":
-  version "0.2.1-beta1"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/client/-/client-0.2.1-beta1.tgz#5bb59f4a4ff13eeb91f0ab6e41f2d8e7c5871355"
-  integrity sha512-LGJ0BtGxV3AL+S8AdYH1zxiLeKgCODF13+Y1j3xWgZI7AnB4UPKinQ8vbvpj8Ak35nRuCkeTknJfxquGHtehwQ==
-  dependencies:
-    "@spacetimexyz/eth" "^0.1.27"
-    "@spacetimexyz/lang" "^0.1.4"
-    axios "^0.27.2"
-    lodash.merge "^4.6.2"
-
-"@spacetimexyz/eth@^0.1.27":
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/eth/-/eth-0.1.27.tgz#e0e4ac59e6dc26fda1daa89fff1497a05bb3ffee"
-  integrity sha512-CxwmXvZHs4OBlqhq/DdN683Y8eIwbwCN0EbzaFoamwALDk0ROMsu0vKcXwkBlR4r7eFcT2DMjcIzSyDVjuH1rQ==
-  dependencies:
-    "@ethersproject/keccak256" "^5.7.0"
-    "@ethersproject/strings" "^5.7.0"
-    "@spacetimexyz/util" "^0.1.27"
-
-"@spacetimexyz/lang@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/lang/-/lang-0.1.4.tgz#4ef6865afdf2932fa43ce094e5dece3790cdd68d"
-  integrity sha512-muGtU+CaXkgzTVG0QQHHVLfnBO0BV+UjtYNbkNLWBtnedD8mq5cfzx/84VyUyepn2/L7fgWWzuwkb1Itystyng==
-
-"@spacetimexyz/react@0.2.1-beta1":
-  version "0.2.1-beta1"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/react/-/react-0.2.1-beta1.tgz#362a567396976d7781f573b1af169e9b2191cb81"
-  integrity sha512-qqmoopmzVs+hGGQ9dxvWIJQ2Sfl/at7SomEAQFWzruewbAHDqKrlI0yroSY6yImTPnRVrwRxqLaSZZCOXON4Gg==
-  dependencies:
-    "@spacetimexyz/client" "^0.2.1-beta1"
-
-"@spacetimexyz/util@^0.1.15", "@spacetimexyz/util@^0.1.27":
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/@spacetimexyz/util/-/util-0.1.27.tgz#aeac29f51cae13d3c13904de2ea350208f386a81"
-  integrity sha512-rcpIZAHjOZf7cVg8ghQbZPW1rYN6vhKuBuIAD0CebpMbxfOjOVWU8baEBSZA9PtmTcloY9aCAn3LIk9OO5Losg==
-  dependencies:
-    "@ethersproject/bytes" "^5.7.0"
-    "@ethersproject/signing-key" "^5.7.0"
-    tweetnacl "^1.0.3"
-    tweetnacl-util "^0.15.1"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"

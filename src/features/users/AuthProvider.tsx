@@ -24,7 +24,7 @@ export interface AuthProviderProps {
   domain?: string
 }
 
-export function AuthProvider ({ children, storagePrefix = 'spacetime.', domain }: AuthProviderProps) {
+export function AuthProvider ({ children, storagePrefix = 'polybase.', domain }: AuthProviderProps) {
   const [auth, setAuth] = useState<AuthContextValue['auth']>(null)
   const [loading, setLoading] = useState(true)
   // const client = useApi()

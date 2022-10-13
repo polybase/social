@@ -18,7 +18,7 @@ jobs:
       - name: Get project data
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-          ORGANIZATION: spacetimehq
+          ORGANIZATION: polybase
           PROJECT_NUMBER: 2
         run: |
           gh api graphql -f query='
