@@ -27,24 +27,29 @@ export function useLogin () {
 
 async function getWallet (account: string, db: Polybase) {
   // Lookup account
-  const doc = db.collection<User>('demo/social/users').doc(account)
+  const col = db.collection<User>('demo/social/users')
+  const doc = col.record(account)
   const user = await doc.get().catch(() => null)
-  console.log(user)
+  const ethEncryptPublicKey = await eth.getEncryptionKey(account)
   if (!user) {
     // Generate private key
     const wallet = Wallet.generate()
-    const publicKey = wallet.getPublicKey()
+    // const publicKey = wallet.getPublicKey()
     const privateKeyBuff = wallet.getPrivateKey()
     const privateKey = privateKeyBuff.toString('hex')
     const encryptedPrivateKey = await eth.encrypt(privateKey, account)
 
-    await doc.set({
-      pvkey: encryptedPrivateKey,
-    }, [`0x${publicKey.toString('hex')}`])
+    db.signer(async (data: string) => {
+      return {  h: 'eth-personal-sign', sig: ethPersonalSign(wallet.getPrivateKey(), data) }
+    })
+
+    await col.create([account, encryptedPrivateKey]).catch((e) => {
+      console.error(e)
+      throw e
+    })
 
     return wallet
   } else {
-    console.log(user.data.pvkey)
     const privateKey = await eth.decrypt(user.data.pvkey, account)
     return Wallet.fromPrivateKey(Buffer.from(privateKey, 'hex'))
   }

@@ -41,7 +41,8 @@ export function ProfileEdit () {
 
   const onEdit = useAsyncCallback(async (data) => {
     if (!account) return
-    await polybase.collection<Message>('demo/social/users').doc(account).set(data, [auth?.wallet?.getPublicKeyString()])
+    await polybase.collection<Message>('demo/social/users').doc(account)
+      .call('setProfile', [data.name, data.desc])
     setMsg('')
     navigate(`/profiles/${account}`)
   })

@@ -33,18 +33,19 @@ export function ProfileDetail () {
   const share = useAsyncCallback(async (e) => {
     e.preventDefault()
     const pk = auth?.wallet?.getPublicKeyString()
-    if (!pk) throw new Error('You must be logged in to share a message')
-    await polybase.collection<Message>('demo/social/messages').doc(nanoid()).set({
-      message: msg,
+    if (!pk || !account) throw new Error('You must be logged in to share a message')
+    await polybase.collection<Message>('demo/social/messages').create([
+      nanoid(),
       account,
-      timestamp: moment().toISOString(),
-    }, [pk])
+      msg,
+      moment().toISOString(),
+    ])
     setMsg('')
   })
 
   const messagesEl = map(messages?.data, ({ data }) => {
     return (
-      <MessageBox message={data} />
+      <MessageBox key={data.id} message={data} />
     )
   })
 
