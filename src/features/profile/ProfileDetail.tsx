@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Heading,  Container, VStack, Stack, Input, HStack, Button } from '@chakra-ui/react'
+import { Box, Heading,  Container, VStack, Stack, Input, HStack, Button, Spacer, Link as ChakraLink } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { map } from 'lodash'
 import moment from 'moment'
@@ -19,7 +19,7 @@ export function ProfileDetail () {
   const { auth } = useAuth()
 
   const { data } = useDocument<User>(
-    account ? polybase.collection('demo/social/users').doc(account) : null,
+    account ? polybase.collection('demo/social/users').record(account) : null,
   )
 
   const { data: messages } = useCollection<Message>(
@@ -56,11 +56,19 @@ export function ProfileDetail () {
           <Stack spacing={8}>
             <Box>
               <Stack>
-                <Heading>
-                  {data?.data?.name ?? 'Annon'}{auth?.account === account ? ' (You)' : ''}
-                </Heading>
+                <HStack>
+                  <Heading>
+                    {data?.data?.name ?? 'Annon'}{auth?.account === account ? ' (You)' : ''}
+                  </Heading>
+                  <Spacer />
+                  {auth?.account === account && (
+                    <Button size={'xs'}>
+                      <Link to='/profiles/edit'>Edit profile</Link>
+                    </Button>
+                  )}
+                </HStack>
                 <Heading size='sm' color='bw.600' fontWeight='normal'>
-                  {data?.data?.id} {auth?.account === account && <Link to='/profiles/edit'>[edit]</Link>}
+                  <ChakraLink isExternal href={`https://explorer.testnet.polybase.xyz/collections/demo%2Fsocial%2Fusers/${data?.data?.id}`}>{data?.data?.id} ↗️</ChakraLink>
                 </Heading>
               </Stack>
             </Box>

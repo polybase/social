@@ -31,9 +31,9 @@ export function Home () {
 
   return (
     <Layout>
-      <VStack>
-        <Container size='lg' p={4}>
-          <Heading size='lg' pb={8}>
+      <Container size='lg'>
+        <VStack align={'left'} spacing={8}>
+          <Heading size='lg'>
             Social is a demo app for the <ChakraLink href='https://polybase.xyz'>Polybase</ChakraLink> decentralized database.
           </Heading>
           <Text>
@@ -44,8 +44,8 @@ export function Home () {
               {usersEl}
             </Stack>
           </Box>
-        </Container>
-      </VStack>
+        </VStack>
+      </Container>
     </Layout>
   )
 }
