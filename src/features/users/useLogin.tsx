@@ -6,7 +6,7 @@ import { ethPersonalSign } from '@polybase/eth'
 import { useAuth } from './useAuth'
 import { User } from 'features/types'
 
-export function useLogin () {
+export function useLogin() {
   const { login } = useAuth()
   const db = usePolybase()
 
@@ -20,27 +20,25 @@ export function useLogin () {
 
     // Update the signer
     db.signer(async (data: string) => {
-      return {  h: 'eth-personal-sign', sig: ethPersonalSign(wallet.getPrivateKey(), data) }
+      return { h: 'eth-personal-sign', sig: ethPersonalSign(wallet.getPrivateKey(), data) }
     })
   }
 }
 
-async function getWallet (account: string, db: Polybase) {
+async function getWallet(account: string, db: Polybase) {
   // Lookup account
   const col = db.collection<User>('demo/social/users')
   const doc = col.record(account)
   const user = await doc.get().catch(() => null)
-  const ethEncryptPublicKey = await eth.getEncryptionKey(account)
   if (!user) {
     // Generate private key
     const wallet = Wallet.generate()
-    // const publicKey = wallet.getPublicKey()
     const privateKeyBuff = wallet.getPrivateKey()
     const privateKey = privateKeyBuff.toString('hex')
     const encryptedPrivateKey = await eth.encrypt(privateKey, account)
 
     db.signer(async (data: string) => {
-      return {  h: 'eth-personal-sign', sig: ethPersonalSign(wallet.getPrivateKey(), data) }
+      return { h: 'eth-personal-sign', sig: ethPersonalSign(wallet.getPrivateKey(), data) }
     })
 
     await col.create([account, encryptedPrivateKey]).catch((e) => {

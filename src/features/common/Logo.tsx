@@ -5,11 +5,11 @@ import {
 import logo from 'img/logo.svg'
 
 export interface LogoProps {
-  to?: string|null
+  to?: string | null
   external?: boolean
 }
 
-export function Logo ({ to, external }: LogoProps) {
+export function Logo({ to, external }: LogoProps) {
   const logoEl = (
     <HStack spacing={1}>
       <Img src={logo} height={'48px'} />

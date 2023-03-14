@@ -1,4 +1,4 @@
-export function hasLocalStorage () {
+export function hasLocalStorage() {
   try {
     localStorage.getItem('test')
     return true

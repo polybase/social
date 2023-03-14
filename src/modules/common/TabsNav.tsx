@@ -14,7 +14,7 @@ export interface TabsNavProps {
   }[]
 }
 
-export function TabsNav ({ tabs, baseUrl }: TabsNavProps) {
+export function TabsNav({ tabs, baseUrl }: TabsNavProps) {
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -38,7 +38,7 @@ export function TabsNav ({ tabs, baseUrl }: TabsNavProps) {
     >
       <TabList>
         {map(tabs, ({ path, title }) => (
-          <Tab key={path}>{ title }</Tab>
+          <Tab key={path}>{title}</Tab>
         ))}
       </TabList>
     </Tabs>

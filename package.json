@@ -94,10 +94,6 @@
       "@typescript-eslint/quotes": [
         "error",
         "single"
-      ],
-      "@typescript-eslint/indent": [
-        "error",
-        2
       ]
     }
   },

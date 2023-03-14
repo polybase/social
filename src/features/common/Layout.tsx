@@ -11,14 +11,14 @@ import { ColorModeSwitcher } from './ColorModeSwitcher'
 import { useLogin } from 'features/users/useLogin'
 
 export interface LayoutProps {
-  children?: React.ReactNode|React.ReactNode[]
+  children?: React.ReactNode | React.ReactNode[]
   logoLink?: string
   logoLinkExternal?: boolean
   isLoading?: boolean
   hideAuthBtns?: boolean
 }
 
-export function Layout ({ children, isLoading, logoLink, logoLinkExternal, hideAuthBtns }: LayoutProps) {
+export function Layout({ children, isLoading, logoLink, logoLinkExternal, hideAuthBtns }: LayoutProps) {
   const { auth, loading, logout } = useAuth()
   const login = useLogin()
 

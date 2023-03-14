@@ -8,7 +8,7 @@ export type ExtendedOptions<R> = UseAsyncCallbackOptions<R> & {
   successTitle?: string
 }
 
-export function useAsyncCallback <R = unknown, Args extends any[] = any[]> (asyncFunction: (...args: Args) => Promise<R> | R, options?: ExtendedOptions<R>) {
+export function useAsyncCallback<R = unknown, Args extends any[] = any[]>(asyncFunction: (...args: Args) => Promise<R> | R, options?: ExtendedOptions<R>) {
   const { onError, errorTitle, logError, successTitle, ...baseOptions } = options || {}
   const toast = useToast()
   return useAsyncCallbackBase(async (...params: Args) => {

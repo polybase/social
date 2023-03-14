@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Heading,  Container, VStack, Stack, Input, HStack, Button, Spacer, Link as ChakraLink } from '@chakra-ui/react'
+import { Box, Heading, Container, VStack, Stack, Input, HStack, Button, Spacer, Link as ChakraLink } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { map } from 'lodash'
 import moment from 'moment'
@@ -11,7 +11,7 @@ import { useAuth } from 'features/users/useAuth'
 import { useAsyncCallback } from 'modules/common/useAsyncCallback'
 import { MessageBox } from 'features/message/Message'
 
-export function ProfileDetail () {
+export function ProfileDetail() {
   const [msg, setMsg] = useState('')
   const { account } = useParams()
   const polybase = usePolybase()

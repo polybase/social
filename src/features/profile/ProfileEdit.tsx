@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-  Box, Heading,  Container,
+  Box, Heading, Container,
   VStack, Stack, Input, FormControl, FormLabel, Button,
   FormHelperText,
 } from '@chakra-ui/react'
@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from 'features/users/useAuth'
 import { useAsyncCallback } from 'modules/common/useAsyncCallback'
 
-export function ProfileEdit () {
+export function ProfileEdit() {
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
   const polybase = usePolybase()

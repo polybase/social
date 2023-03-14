@@ -10,7 +10,7 @@ import { ProfileEdit } from 'features/profile/ProfileEdit'
 
 // const PUBLIC_PATHS = ['/login', '/signup']
 
-export default function AppRouter () {
+export default function AppRouter() {
   const { auth, loading } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()

@@ -27,7 +27,7 @@ interface ErrorBoundaryState {
   hasError: boolean
 }
 
-export default function ErrorBoundary (props: ErrorBoundaryProps) {
+export default function ErrorBoundary(props: ErrorBoundaryProps) {
   const { auth } = useAuth()
   return <ErrorBoundaryInner userId={auth?.account} {...props} />
 }
@@ -35,7 +35,7 @@ export default function ErrorBoundary (props: ErrorBoundaryProps) {
 export class ErrorBoundaryInner extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   value: ErrorBoundaryDefaults = {}
 
-  constructor (props: ErrorBoundaryProps) {
+  constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = { hasError: false }
     this.value = {}
@@ -43,11 +43,11 @@ export class ErrorBoundaryInner extends React.Component<ErrorBoundaryProps, Erro
 
   static contextType = ErrorBoundaryContext
 
-  static getDerivedStateFromError (err: Error) {
+  static getDerivedStateFromError(err: Error) {
     return { hasError: !!err }
   }
 
-  getValue (): ErrorBoundaryDefaults {
+  getValue(): ErrorBoundaryDefaults {
     const val = merge(
       {},
       (this.context as any).defaults,
@@ -59,7 +59,7 @@ export class ErrorBoundaryInner extends React.Component<ErrorBoundaryProps, Erro
     return val
   }
 
-  componentDidCatch (error: Error, info: ErrorInfo) {
+  componentDidCatch(error: Error, info: ErrorInfo) {
     const logFilters = this.getValue().logFilters
     // Skip if matches prevent log
     if (logFilters &&
@@ -86,7 +86,7 @@ export class ErrorBoundaryInner extends React.Component<ErrorBoundaryProps, Erro
     }
   }
 
-  render () {
+  render() {
     const { content } = this.getValue()
     const childEl = this.state.hasError
       ? (content || <p data-error-code={this.props.code}>Sorry, we&apos;re unable to show this right now</p>)

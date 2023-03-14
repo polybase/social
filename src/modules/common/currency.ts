@@ -1,4 +1,4 @@
-export function toUSD (value: string|number) {
+export function toUSD(value: string | number) {
   const number = value ? parseFloat(`${value}`) : 0
   if (!Intl) return `$${number}`
   return number % 1 === 0

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactLoadable from 'react-loadable'
 
-function Loading (props: any) {
+function Loading(props: any) {
   if (props.error) {
     if (process.env.NODE_ENV !== 'production') console.error(props.error)
     return <div>Error!</div>
@@ -12,7 +12,7 @@ function Loading (props: any) {
   }
 }
 
-export default function Loadable (loader: () => Promise<React.ComponentType<any> | { default: React.ComponentType<any> }>) {
+export default function Loadable(loader: () => Promise<React.ComponentType<any> | { default: React.ComponentType<any> }>) {
   return ReactLoadable({
     loading: Loading,
     loader,

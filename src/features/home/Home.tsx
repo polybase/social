@@ -1,4 +1,4 @@
-import { Stack, Box,  Container, VStack, Heading, Link as ChakraLink, Text } from '@chakra-ui/react'
+import { Stack, Box, Container, VStack, Heading, Link as ChakraLink, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { usePolybase, useCollection } from '@polybase/react'
 import { map } from 'lodash'
@@ -6,7 +6,7 @@ import { Layout } from 'features/common/Layout'
 import { User } from 'features/types'
 import { useAuth } from 'features/users/useAuth'
 
-export function Home () {
+export function Home() {
   const polybase = usePolybase()
 
   const { auth } = useAuth()

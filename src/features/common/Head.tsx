@@ -6,7 +6,7 @@ export interface TitleProps {
   desc?: string
 }
 
-function Head ({ title, desc }: TitleProps) {
+function Head({ title, desc }: TitleProps) {
   if (!title) return null
   return (
     <Helmet>

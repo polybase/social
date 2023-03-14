@@ -2,10 +2,10 @@ import { Box, Heading, Stack, Flex, Spacer } from '@chakra-ui/react'
 
 export interface StatProps {
   title: string
-  stat: number|string
+  stat: number | string
 }
 
-export function Stat ({ title, stat }: StatProps) {
+export function Stat({ title, stat }: StatProps) {
   return (
     <Stack bg='bw.50' borderRadius='lg' p={8} flex='1 1 auto' spacing={3}>
       <Flex display='flex'>

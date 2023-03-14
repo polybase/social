@@ -14,7 +14,7 @@ export interface AuthContextValue {
 export const AuthContext = createContext<AuthContextValue>({
   loading: true,
   auth: null,
-  login: async (account: string, wallet: Wallet) => {},
+  login: async (account: string, wallet: Wallet) => { },
   logout: async () => { console.log('demo logout') },
 })
 
@@ -24,7 +24,7 @@ export interface AuthProviderProps {
   domain?: string
 }
 
-export function AuthProvider ({ children, storagePrefix = 'polybase.', domain }: AuthProviderProps) {
+export function AuthProvider({ children, storagePrefix = 'polybase.', domain }: AuthProviderProps) {
   const [auth, setAuth] = useState<AuthContextValue['auth']>(null)
   const [loading, setLoading] = useState(true)
   // const client = useApi()
@@ -64,7 +64,7 @@ export function AuthProvider ({ children, storagePrefix = 'polybase.', domain }:
   )
 }
 
-export function decodeTokenUserId (token?: string|null) {
+export function decodeTokenUserId(token?: string | null) {
   if (!token) return null
   try {
     const base = token.split('.').pop()
