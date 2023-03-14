@@ -5,6 +5,7 @@ import { ethPersonalSign } from '@polybase/eth'
 // PK, need to establish a PK so we can control updates
 
 const schema = `
+@public
 collection users {
   id: string; 
   name?: string;
@@ -32,6 +33,7 @@ collection users {
   }
 }
 
+@public
 collection followers {
   id: string;
   follower: string;
@@ -47,6 +49,7 @@ collection followers {
   }
 }
 
+@public
 collection messages {
   id: string;
   message: string;
@@ -68,7 +71,7 @@ collection messages {
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY ?? ''
 
-async function load () {
+async function load() {
   const db = new Polybase({
     baseURL: `${process.env.REACT_APP_API_URL}/v0`,
     signer: async (data) => {
