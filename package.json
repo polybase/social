@@ -18,10 +18,10 @@
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@polybase/client": "^0.3.9",
-    "@polybase/eth": "^0.3.9",
-    "@polybase/react": "^0.3.6",
-    "@polybase/util": "^0.3.9",
+    "@polybase/client": "^0.3.33",
+    "@polybase/eth": "^0.3.33",
+    "@polybase/react": "^0.3.33",
+    "@polybase/util": "^0.3.33",
     "@sentry/react": "^7.11.1",
     "@sentry/tracing": "^7.11.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -86,10 +86,7 @@
         "never"
       ],
       "no-underscore-dangle": 0,
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ],
+      "space-before-function-paren": 0,
       "arrow-body-style": 0,
       "no-use-before-define": 0,
       "arrow-parens": 0,
