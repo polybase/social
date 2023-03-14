@@ -16,12 +16,12 @@ collection users {
 
   constructor (id: string, pvkey: string) {
     this.id = id;
-    this.$pk = ctx.publicKey;
+    this.$pk = ctx.publicKey.toHex();
     this.pvkey = pvkey;
   }
 
   setProfile(name?: string, desc?: string) {
-    if (this.$pk != ctx.publicKey) {
+    if (this.$pk != ctx.publicKey.toHex()) {
       throw error ('invalid owner');
     }
     if (this.name) {
@@ -45,7 +45,7 @@ collection followers {
     this.id = follower + '/' + followee;
     this.follower = follower;
     this.followee = followee;
-    this.$pk = ctx.publicKey;
+    this.$pk = ctx.publicKey.toHex();
   }
 }
 
@@ -61,7 +61,7 @@ collection messages {
 
   constructor (id: string, account: string, message: string, timestamp: string) {
     this.id = id;
-    this.$pk = ctx.publicKey;
+    this.$pk = ctx.publicKey.toHex();
     this.account = account;
     this.message = message;
     this.timestamp = timestamp;
