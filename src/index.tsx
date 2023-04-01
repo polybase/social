@@ -6,6 +6,7 @@ import * as Sentry from '@sentry/react'
 import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 import * as serviceWorker from './serviceWorker'
+import posthog from 'posthog-js'
 
 const {
   REACT_APP_VERSION,
@@ -28,6 +29,11 @@ if (NODE_ENV === 'production') {
   })
 }
 
+// Analytics
+posthog.init('phc_DBZY8MbRdRIIwSwX4ZSwTAjy5ogdQPDMVdPObOuQQf', { api_host: 'https://a.polybase.xyz' })
+if (process.env.REACT_APP_ENV_NAME !== 'production') {
+  posthog.opt_out_capturing()
+}
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Failed to find the root element')

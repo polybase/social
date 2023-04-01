@@ -2544,7 +2544,7 @@
     "@sentry/utils" "7.11.1"
     tslib "^1.9.3"
 
-"@sentry/types@7.11.1", "@sentry/types@^7.2.0":
+"@sentry/types@7.11.1":
   version "7.11.1"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.11.1.tgz#06e2827f6ba37159c33644208a0453b86d25e232"
   integrity sha512-gIEhOPxC2cjrxQ0+K2SFJ1P6e/an5osSxVc9OOtekN28eHtVsXFCLB8XVWeNQnS7N2VkrVrkqORMBz1kvIcvVQ==
@@ -8929,12 +8929,11 @@ postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.4, postcss@^8.4.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthog-js@^1.29.0:
-  version "1.29.0"
-  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.29.0.tgz#be0ea05e0c787b37835173e5ecb0d8cf31d7c2dd"
-  integrity sha512-toM7mUcDKo3sW5D4gxj0e0o3A2npX/VVjEKsO62lfeq1vavySEhJajzw652K0bXC5adGqA2Q/MzrBGWOeFoWrA==
+posthog-js@^1.51.5:
+  version "1.51.5"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.51.5.tgz#23f11f5e75690312301d596b6f1f795e5b423eb9"
+  integrity sha512-hhOreF51vvg97iKFZ4GFF4lwQVq1WWJXOJ59NbQVsXj+bVxDcX4vog0Yx40rfp4uWNnE/xRWQQEOwlKM2WkcjQ==
   dependencies:
-    "@sentry/types" "^7.2.0"
     fflate "^0.4.1"
     rrweb-snapshot "^1.1.14"
 
