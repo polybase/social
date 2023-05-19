@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+      
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release-')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: release
+          token: ${{ secrets.ADMIN_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "hello@polybase.xyz"
+          git config --global user.name "Polybase CI"
+
+      - name: Get PR Info
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_DESC="${{ github.event.pull_request.body }}"
+          PR_BRANCH="${{ github.event.pull_request.head.ref }}"
+          PR_VERSION="${PR_BRANCH#*release-}"
+  
+          echo "PR Title: $PR_TITLE"
+          echo "PR Description: $PR_DESC"
+          echo "PR Branch: $PR_BRANCH"
+          echo "PR Version: $PR_VERSION"
+          echo "PR_VERSION=$PR_VERSION" >> $GITHUB_ENV  
+
+      - name: Merge main into release (to deploy)
+        run: |
+          git fetch origin main
+          git merge --no-edit origin/main
+
+      - name: Create Tag
+        id: create_tag
+        run: |
+          git tag $PR_VERSION
+          echo ::set-output name=tag::${PR_VERSION}
+    
+      - name: Push Changes and Tags
+        run: |
+          git push origin HEAD:release --tags
+
+      - name: "Create Release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/releases \
+          --header "Authorization: Bearer $GITHUB_TOKEN" \
+          --header 'Content-Type: application/json' \
+          --data "{
+            \"tag_name\": \"$PR_VERSION\",
+            \"name\": \"Release $PR_VERSION\",
+            \"body\": \"Release notes for version $PR_VERSION\"
+          }"
