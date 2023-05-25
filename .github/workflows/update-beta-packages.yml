@@ -1,0 +1,37 @@
+name: Update Beta Packages
+
+on:
+  repository_dispatch:
+    types: [update-packages-beta]
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+
+      - name: Add npm package
+        run: yarn add @polybase/client@beta @polybase/eth@beta @polybase/react@beta @polybase/util@beta
+
+      - name: Get latest beta version
+        id: version
+        run: |
+          latest_beta_version=$(npm show @polybase/client@beta version)
+          echo "::set-output name=latest_beta_version::$latest_beta_version"
+
+      - name: Create a PR  # Action will update PR automatically if it already exists
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          title: Update packages to version ${{ steps.version.outputs.latest_beta_version }}
+          branch: update-beta-packages
+          delete-branch: true
+          base: main
+          team-reviewers: engineering
