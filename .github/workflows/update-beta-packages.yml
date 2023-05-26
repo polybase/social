@@ -31,7 +31,7 @@ jobs:
         with:
           token: ${{ secrets.ADMIN_TOKEN }}
           title: Update packages to version ${{ steps.version.outputs.latest_beta_version }}
-          branch: update-beta-packages
+          branch: update-beta-packages-${{ steps.version.outputs.latest_beta_version }}
           delete-branch: true
           base: main
           team-reviewers: engineering
