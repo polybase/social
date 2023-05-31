@@ -23,7 +23,7 @@ jobs:
       - name: Get latest version
         id: version
         run: |
-          latest_version=$(npm show @polybase/client version)
+          latest__version=$(npm show @polybase/client version)
           echo "::set-output name=latest__version::$latest__version"
 
       - name: Create a PR  # Action will update PR automatically if it already exists
@@ -33,5 +33,4 @@ jobs:
           title: Update packages to version ${{ steps.version.outputs.latest__version }}
           branch: update-packages
           delete-branch: true
-          base: main
           team-reviewers: engineering
