@@ -10,9 +10,11 @@
     "pull:dev": "vercel env pull --environment development",
     "pull:preview": "vercel env pull --environment preview",
     "pull:prod": "vercel env pull --environment production",
-    "load": "ts-node ./scripts/create-schema.ts",
+    "load": "ts-node ./schema/load.ts",
     "env": "env-cmd --no-override --file ${ENV_PATH:-.env}",
-    "fix": "eslint \"./src/**/*.{ts,tsx}\" webpack.config.js --fix"
+    "fix": "eslint \"./src/**/*.{ts,tsx}\" webpack.config.js --fix",
+    "test:ui": "npx playwright test",
+    "test:ui:report": "npx playwright show-report"
   },
   "dependencies": {
     "@1productaweek/react-modal-hooks": "^0.1.14",
@@ -111,6 +113,8 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.36.1",
+    "@polybase/auth": "^0.6.5",
     "@types/js-cookie": "^3.0.2",
     "@types/react-helmet": "^6.1.5",
     "@types/react-infinite-scroller": "^1.2.3",

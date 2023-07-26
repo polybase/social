@@ -1,0 +1,41 @@
+name: Tests
+on:
+  push:
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest-16-cores
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+
+    - name: Load schema
+      run: yarn env yarn load
+      env:
+        REACT_APP_API_URL: "http://127.0.0.1:8080"
+        # Don't worry, this is a test key
+        PRIVATE_KEY: "c3ad5027324569eab955e09b4d9f96a3e1e4601c16f1a20966b7b26dff7b5995"
+      
+    - name: Run Playwright tests
+      id: test
+      run: yarn test:ui
+      env:
+        REACT_APP_API_URL: "http://127.0.0.1:8080"
+
+    - uses: actions/upload-artifact@v3
+      if: ${{ always() }} 
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
